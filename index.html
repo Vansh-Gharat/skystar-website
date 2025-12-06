@@ -667,53 +667,9 @@
             });
         });
 
-        // Tracking Form Submission
-        const trackingForm = document.getElementById('tracking-form');
-        const trackingResult = document.getElementById('tracking-result');
         
-        trackingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const trackingNumber = document.getElementById('tracking-number').value;
-            
-            // Simulate API call (replace with real API later)
-            setTimeout(() => {
-                document.getElementById('result-id').textContent = trackingNumber;
-                document.getElementById('result-status').textContent = 'In Transit';
-                document.getElementById('result-location').textContent = 'JNPT Port, Mumbai';
-                document.getElementById('result-delivery').textContent = 'Dec 10, 2025';
-                
-                trackingResult.classList.remove('hidden');
-                trackingResult.scrollIntoView({ behavior: 'smooth' });
-            }, 500);
-        });
 
-        // Contact Form Submission
-        const contactForm = document.getElementById('contact-form');
-        const formSuccess = document.getElementById('form-success');
         
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Collect form data
-            const formData = {
-                name: document.getElementById('contact-name').value,
-                email: document.getElementById('contact-email').value,
-                phone: document.getElementById('contact-phone').value,
-                message: document.getElementById('contact-message').value
-            };
-            
-            // Simulate form submission (replace with real backend later)
-            console.log('Form submitted:', formData);
-            
-            // Show success message
-            formSuccess.classList.remove('hidden');
-            contactForm.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                formSuccess.classList.add('hidden');
-            }, 5000);
-        });
 
         // Add scroll animation to navbar
         window.addEventListener('scroll', () => {
