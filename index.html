@@ -434,7 +434,7 @@
                name="name"
                id="contact-name"
                placeholder="Your Name" 
-               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+               class="w-full max-w-xs px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
                required>
     </div>
     
@@ -445,7 +445,7 @@
                name="email"
                id="contact-email"
                placeholder="your@email.com" 
-               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                class="w-full max-w-xs px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
                required>
     </div>
     
@@ -456,7 +456,7 @@
                name="phone"
                id="contact-phone"
                placeholder="+91 98765 43210" 
-               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                class="w-full max-w-xs px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
                required>
     </div>
     
@@ -464,7 +464,7 @@
     <div>
         <label class="block text-gray-700 font-medium mb-2">Service Interested In</label>
         <select name="service"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                 class="w-full max-w-xs px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
             <option>Customs Clearance</option>
             <option>Freight Forwarding</option>
             <option>Warehousing</option>
@@ -480,13 +480,13 @@
                   id="contact-message"
                   rows="4" 
                   placeholder="Tell us about your requirements..." 
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                   class="w-full max-w-xs px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
                   required></textarea>
     </div>
     
     <!-- Submit Button -->
     <button type="submit" 
-            class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+            class="w-full max-w-xs bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
         <i class="fas fa-paper-plane mr-2"></i>Send Message
      </button>
     </form>
@@ -496,62 +496,60 @@
         Thank you! We'll get back to you within 24 hours.
     </div>
                 
-                <!-- Contact Info -->
+               <!-- Contact Info -->
+<div>
+    <div class="bg-white rounded-lg p-4 sm:p-6 md:p-8 shadow-md mb-4 sm:mb-6">
+        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Contact Information</h3>
+        
+        <div class="space-y-3 sm:space-y-4">
+            <div class="flex items-start">
+                <i class="fas fa-map-marker-alt text-blue-600 text-base sm:text-xl mt-1 mr-3 sm:mr-4 flex-shrink-0"></i>
                 <div>
-                    <div class="bg-white rounded-lg p-8 shadow-md mb-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-6">Contact Information</h3>
-                        
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <i class="fas fa-map-marker-alt text-blue-600 text-xl mt-1 mr-4"></i>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Address</h4>
-                                    <p class="text-gray-600">Office No.323B, Wing-C, E.B.D. Neptune Magnet Mall,<br>
-                                    LBS Road, Bhandup West, Mumbai - 400078</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <i class="fas fa-envelope text-blue-600 text-xl mt-1 mr-4"></i>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Email</h4>
-                                    <p class="text-gray-600">skystarclg@gmail.com</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <i class="fas fa-phone text-blue-600 text-xl mt-1 mr-4"></i>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Phone</h4>
-                                    <p class="text-gray-600">+91 77100 79000 </p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <i class="fas fa-clock text-blue-600 text-xl mt-1 mr-4"></i>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Working Hours</h4>
-                                    <p class="text-gray-600">Monday - Saturday: 10:00 AM - 6:00 PM</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Google Map -->
-                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.2281697969597!2d72.92917437602743!3d19.14148708207663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8772c183a15%3A0x3ff3a64ac15041c2!2sOffice%20No%2C%20Neptune%20Magnet%20Mall%2C%20Eastern%20Business%20District%2C%20C%20322%2FA%2C%20Lal%20Bahadur%20Shastri%20Marg%2C%20Ganesh%20Nagar%2C%20Bhandup%20West%2C%20Mumbai%2C%20Maharashtra%20400078!5e0!3m2!1sen!2sin!4v1765011646182!5m2!1sen!2sin" 
-                        width="600" 
-                        height="450" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                               
-                    </div>
+                    <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Address</h4>
+                    <p class="text-gray-600 text-xs sm:text-sm md:text-base">Office No.323B, Wing-C, E.B.D. Neptune Magnet Mall,<br>
+                    LBS Road, Bhandup West, Mumbai - 400078</p>
+                </div>
+            </div>
+            
+            <div class="flex items-start">
+                <i class="fas fa-envelope text-blue-600 text-base sm:text-xl mt-1 mr-3 sm:mr-4 flex-shrink-0"></i>
+                <div>
+                    <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Email</h4>
+                    <p class="text-gray-600 text-xs sm:text-sm md:text-base break-all">skystarclg@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="flex items-start">
+                <i class="fas fa-phone text-blue-600 text-base sm:text-xl mt-1 mr-3 sm:mr-4 flex-shrink-0"></i>
+                <div>
+                    <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Phone</h4>
+                    <p class="text-gray-600 text-xs sm:text-sm md:text-base">+91 77100 79000</p>
+                </div>
+            </div>
+            
+            <div class="flex items-start">
+                <i class="fas fa-clock text-blue-600 text-base sm:text-xl mt-1 mr-3 sm:mr-4 flex-shrink-0"></i>
+                <div>
+                    <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Working Hours</h4>
+                    <p class="text-gray-600 text-xs sm:text-sm md:text-base">Monday - Saturday: 10:00 AM - 6:00 PM</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    
+    <!-- Google Map -->
+    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.2281697969597!2d72.92917437602743!3d19.14148708207663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8772c183a15%3A0x3ff3a64ac15041c2!2sOffice%20No%2C%20Neptune%20Magnet%20Mall%2C%20Eastern%20Business%20District%2C%20C%20322%2FA%2C%20Lal%20Bahadur%20Shastri%20Marg%2C%20Ganesh%20Nagar%2C%20Bhandup%20West%2C%20Mumbai%2C%20Maharashtra%20400078!5e0!3m2!1sen!2sin!4v1765011646182!5m2!1sen!2sin" 
+        width="100%" 
+        height="300" 
+        class="sm:h-96 md:h-[450px]"
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
 
     <!-- Footer -->
 <footer class="bg-gray-900 text-white py-12">
