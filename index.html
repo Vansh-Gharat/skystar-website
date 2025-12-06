@@ -667,7 +667,77 @@
             });
         });
 
+        // Tracking Form Submission with Google Sheets Integration
+
         
+const trackingForm = document.getElementById('tracking-form');
+const trackingResult = document.getElementById('tracking-result');
+
+// ⚙️ CONFIGURATION - Replace these values!
+const SHEET_ID = '1Ydh4xf3kXLVlFGyMvCQSP7kbqeEDf3Y59CBu1RG_LII';  
+const API_KEY = 'AIzaSyCRIgbrCq8JgMLN7fYzGq7i19e7rvF37n4';     
+const SHEET_NAME = 'Sheet1';
+
+trackingForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const trackingNumber = document.getElementById('tracking-number').value.toUpperCase();
+    
+    const submitBtn = trackingForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Searching...';
+    submitBtn.disabled = true;
+    
+    try {
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        const rows = data.values;
+        let found = false;
+        
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (row[0] && row[0].toUpperCase() === trackingNumber) {
+                found = true;
+                
+                document.getElementById('result-id').textContent = row[0] || 'N/A';
+                document.getElementById('result-status').textContent = row[1] || 'Unknown';
+                document.getElementById('result-location').textContent = row[2] || 'N/A';
+                document.getElementById('result-delivery').textContent = row[3] || 'N/A';
+                
+                const statusElement = document.getElementById('result-status');
+                if (row[1] === 'Delivered') {
+                    statusElement.className = 'font-semibold text-green-600';
+                } else if (row[1] === 'In Transit') {
+                    statusElement.className = 'font-semibold text-blue-600';
+                } else if (row[1] === 'Delayed') {
+                    statusElement.className = 'font-semibold text-red-600';
+                } else if (row[1] === 'Customs Clearance') {
+                    statusElement.className = 'font-semibold text-yellow-600';
+                } else {
+                    statusElement.className = 'font-semibold text-gray-600';
+                }
+                
+                trackingResult.classList.remove('hidden');
+                trackingResult.scrollIntoView({ behavior: 'smooth' });
+                break;
+            }
+        }
+        
+        if (!found) {
+            alert('❌ Tracking number not found. Please check and try again.');
+        }
+        
+    } catch (error) {
+        console.error('Error fetching tracking data:', error);
+        alert('⚠️ Unable to fetch tracking information. Please try again later.');
+    } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
+});
+
 
         
 
