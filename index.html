@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Skystar Multiglobal Services - Leading Customs Clearance, Freight Forwarding & Logistics Services in Mumbai JNPT">
-    <meta name="keywords" content="customs clearance, JNPT, freight forwarding, logistics Mumbai, Bhandup">
-    <title>Skystar Multiglobal Services Pvt Ltd | Customs Clearance & Logistics</title>
+    <meta name="description" content="Skystar Multiglobal Services - Leading Customs Clearance, Freight Forwarding & Logistics Services in Mumbai JNPT. 24/7 Support, 100% Compliance, Fast Turnaround.">
+    <meta name="keywords" content="customs clearance Mumbai, JNPT port, freight forwarding, logistics Mumbai, Bhandup, warehousing, transportation, customs agent">
+    <meta name="author" content="Skystar Multiglobal Services Pvt Ltd">
+    <title>Skystar Multiglobal Services | #1 Customs Clearance & Logistics in Mumbai JNPT</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,8 +14,12 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- 🆕 AOS Animation Library (NEW!) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     
     <style>
         body {
@@ -51,19 +56,51 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
+        /* 🆕 Loading Animation (NEW!) */
+    #loader {
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    }
+    .loader-spin {
+        border-color: #3b82f6;
+        border-top-color: transparent;
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    
+    /* 🆕 Counter Animation (NEW!) */
+    .counter {
+        font-feature-settings: "tnum";
+        font-variant-numeric: tabular-nums;
+    }
     </style>
 </head>
 <body class="smooth-scroll">
+
+   
+    <!-- Add after <body> tag -->
+<div id="loader" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+    <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600"></div>
+</div>
+
+<script>
+window.addEventListener('load', () => {
+    document.getElementById('loader').style.display = 'none';
+});
+</script>
+
 
     <!-- Navigation Bar -->
 <nav class="sticky-nav shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 py-2">
             <!-- Logo with Custom Image -->
-            <div class="flex-shrink-0 flex items-center">
+            <div class="flex-shrink-0 flex items-center ">
                 <img src="logo.png" 
                      alt="Skystar Multiglobal Services" 
-                     class="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 mr-2 sm:mr-4 object-contain">
+                     class="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 mr-2 sm:mr-4 object-contain transition-transform duration-300 group-hover:scale-110" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <i class="fas fa-ship text-blue-600 text-3xl mr-4 hidden"></i>
                 <div class="flex flex-col">
                     <span class="text-sm sm:text-base md:text-2xl font-bold text-gray-800 leading-tight">Skystar Multiglobal Services Pvt Ltd</span>
                     
@@ -73,29 +110,30 @@
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition">Home</a>
-                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition">About</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition">About us</a>
                 <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition">Services</a>
                 <a href="#tracking" class="text-gray-700 hover:text-blue-600 font-medium transition">Track Shipment</a>
-                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition">Contact</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition">Contact us</a>
             </div>
             
-            <!-- Mobile Menu Button -->
+            
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600">About Us</a>
+            <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
+            <a href="#tracking" class="block py-2 text-gray-700 hover:text-blue-600">Track Shipment</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact us</a>
+        </div>
+        <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none" aria-label="Toggle menu">
             <div class="md:hidden">
                 <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden pb-4">
-            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
-            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
-            <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
-            <a href="#tracking" class="block py-2 text-gray-700 hover:text-blue-600">Track Shipment</a>
-            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
-        </div>
     </div>
 </nav>
 
@@ -119,31 +157,32 @@
         <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 text-blue-100">
             Expert Freight Forwarding, Warehousing & Transportation Services at JNPT
         </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition shadow-lg">
-                Get in touch
+        <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
+            <!-- 🆕 Enhanced Buttons with Icons -->
+            <a href="#contact" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition shadow-lg text-lg">
+                <i class="fas fa-envelope mr-2"></i>Get in touch
             </a>
-            <a href="#tracking" class="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition border-2 border-white shadow-lg">
-                Track Shipment
+            <a href="#tracking" class="bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 transition border-2 border-white shadow-lg text-lg">
+                <i class="fas fa-search-location mr-2"></i>Track Shipment
             </a>
         </div>
         
-        <!-- Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
-            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
-                <div class="text-3xl sm:text-4xl font-bold">500+</div>
+        <!-- 🆕 Stats with Glass Effect & Counter Animation -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16" data-aos="fade-up" data-aos-delay="500">
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6">
+                <div class="text-5xl font-bold mb-2 counter" data-target="1">500+</div>
                 <div class="text-blue-100">Satisfied Clients</div>
             </div>
-            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
-                <div class="text-3xl sm:text-4xl font-bold">24/7</div>
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6">
+                <div class="text-5xl font-bold mb-2 counter">24/7</div>
                 <div class="text-blue-100">Support</div>
             </div>
-            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
-                <div class="text-3xl sm:text-4xl font-bold">100%</div>
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6">
+                <div class="text-5xl font-bold mb-2 counter">100%</div>
                 <div class="text-blue-100">Compliance</div>
             </div>
-            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
-                <div class="text-3xl sm:text-4xl font-bold">JNPT</div>
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6">
+                <div class="text-5xl font-bold mb-2 counter">JNPT</div>
                 <div class="text-blue-100">Proximity</div>
             </div>
         </div>
@@ -159,13 +198,14 @@
                 <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
             </div>
             
+            
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
+                <div data-aos="fade-right" data-aos-delay="200">
                     <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800" 
                          alt="Logistics Operations" 
                          class="rounded-lg shadow-lg">
                 </div>
-                <div>
+                <div data-aos="fade-left" data-aos-delay="300">
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">
                         Skystar Multiglobal Services Pvt Ltd
                     </h3>
@@ -177,19 +217,19 @@
                     </p>
                     
                     <div class="space-y-3">
-                        <div class="flex items-start">
+                        <div class="flex items-start" data-aos="fade-left" data-aos-delay="400">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
                             <span class="text-gray-700">End-to-end logistics solutions under one roof</span>
                         </div>
-                        <div class="flex items-start">
+                        <div class="flex items-start" data-aos="fade-left" data-aos-delay="500">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
                             <span class="text-gray-700">Strategic location near JNPT for faster clearance</span>
                         </div>
-                        <div class="flex items-start">
+                        <div class="flex items-start" data-aos="fade-left" data-aos-delay="600">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
                             <span class="text-gray-700">Technology-driven tracking and automated reporting</span>
                         </div>
-                        <div class="flex items-start">
+                        <div class="flex items-start" data-aos="fade-left" data-aos-delay="700">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
                             <span class="text-gray-700">Serving retail, e-commerce, and construction sectors</span>
                         </div>
@@ -199,8 +239,10 @@
         </div>
     </section>
 
+    
+
     <!-- Services Section -->
-    <section id="services" class="py-16 bg-white">
+    <section id="services" class="py-16 bg-white" data-aos="fade-up">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
@@ -213,7 +255,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service Card 1 -->
                 <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover shadow-md">
-                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4" data-aos="fade-up" data-aos-delay="100">
                         <i class="fas fa-ship text-blue-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-3">Customs Clearance</h3>
@@ -238,7 +280,7 @@
                 
                 <!-- Service Card 2 -->
                 <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover shadow-md">
-                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4" data-aos="fade-up" data-aos-delay="200">
                         <i class="fas fa-plane text-green-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-3">Freight Forwarding</h3>
@@ -263,7 +305,7 @@
                 
                 <!-- Service Card 3 -->
                 <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover shadow-md">
-                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4" data-aos="fade-up" data-aos-delay="300">
                         <i class="fas fa-warehouse text-purple-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-3">Warehousing</h3>
@@ -288,7 +330,7 @@
                 
                 <!-- Service Card 4 -->
                 <div class="bg-white border border-gray-200 rounded-lg p-6 card-hover shadow-md">
-                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-4"  data-aos="fade-up" data-aos-delay="400">
                         <i class="fas fa-truck text-orange-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-3">Transportation</h3>
@@ -314,8 +356,159 @@
         </div>
     </section>
 
+    <!-- 🆕 TESTIMONIALS SECTION - COMPLETELY NEW! -->
+<section class="py-16 bg-white" data-aos="fade-up">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+            <div class="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
+            <p class="text-gray-600">Trusted by leading businesses across Mumbai and India</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 italic">
+                        "Skystar handled our JNPT customs clearance efficiently. Fast turnaround and professional service! Highly recommended for import-export businesses."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Rajesh Kumar</h4>
+                            <p class="text-sm text-gray-500">Import Manager, ABC Ltd</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 italic">
+                        "Excellent warehousing solutions. Their team is knowledgeable and always responsive. Our go-to logistics partner in Mumbai."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Priya Sharma</h4>
+                            <p class="text-sm text-gray-500">CEO, XYZ Exports</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 italic">
+                        "Best freight forwarding service in Mumbai. Highly recommend for JNPT operations! Saved us time and money on multiple shipments."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Amit Patel</h4>
+                            <p class="text-sm text-gray-500">Logistics Head, DEF Corp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
+                <p class="text-gray-600">Quick answers to common questions about our services</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <h3 class="text-lg font-semibold text-gray-800">What documents are required for customs clearance?</h3>
+                        <i class="fas fa-chevron-down text-gray-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-600">
+                        You'll need Bill of Entry, Commercial Invoice, Packing List, Bill of Lading/Airway Bill, Import License (if applicable), and GSTR details. Our team will guide you through the complete documentation process to ensure smooth clearance.
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <h3 class="text-lg font-semibold text-gray-800">How long does customs clearance take at JNPT?</h3>
+                        <i class="fas fa-chevron-down text-gray-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-600">
+                        Typically 2-4 working days for standard cargo, depending on documentation and inspection requirements. Express clearance available for urgent shipments. Our proximity to JNPT port helps expedite the process.
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <h3 class="text-lg font-semibold text-gray-800">Do you handle hazardous cargo?</h3>
+                        <i class="fas fa-chevron-down text-gray-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-600">
+                        Yes, we handle all classes of hazardous materials with proper licensing and specialized storage facilities. Our team is trained in IMDG compliance and follows all safety protocols for dangerous goods handling.
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="400">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <h3 class="text-lg font-semibold text-gray-800">What are your operating hours?</h3>
+                        <i class="fas fa-chevron-down text-gray-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-600">
+                        Monday to Saturday: 10:00 AM - 6:00 PM. Emergency support available 24/7 for critical shipments. You can reach us anytime via phone or email for urgent matters.
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="500">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <h3 class="text-lg font-semibold text-gray-800">How can I track my shipment?</h3>
+                        <i class="fas fa-chevron-down text-gray-600 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-600">
+                        Use our Track Shipment feature on this website with your unique tracking ID. You'll receive real-time updates via email and SMS throughout the clearance process. Our team is also available to provide status updates on demand.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- Why Choose Us Section -->
-    <section class="py-16 bg-blue-50">
+    <section class="py-16 bg-blue-50" data-aos="fade-up">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Partner With Us?</h2>
@@ -323,7 +516,7 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
                     <div class="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                         <i class="fas fa-clock text-blue-600 text-3xl"></i>
                     </div>
@@ -333,7 +526,7 @@
                     </p>
                 </div>
                 
-                <div class="text-center">
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
                     <div class="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                         <i class="fas fa-shield-alt text-blue-600 text-3xl"></i>
                     </div>
@@ -343,7 +536,7 @@
                     </p>
                 </div>
                 
-                <div class="text-center">
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
                     <div class="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                         <i class="fas fa-headset text-blue-600 text-3xl"></i>
                     </div>
@@ -357,15 +550,15 @@
     </section>
 
     <!-- Tracking Section -->
-    <section id="tracking" class="py-16 bg-white">
+    <section id="tracking" class="py-16 bg-white" >
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-right">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Track Your Shipment</h2>
                 <div class="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
                 <p class="text-gray-600">Enter your tracking number to get real-time updates</p>
             </div>
             
-            <div class="bg-gray-50 rounded-lg p-8 shadow-md">
+            <div class="bg-gray-50 rounded-lg p-8 shadow-md" data-aos="fade-up">
                 <form id="tracking-form" class="space-y-4">
                     <div>
                         <label class="block text-gray-700 font-medium mb-2">Tracking Number</label>
@@ -409,8 +602,8 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
                 <div class="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
                 <p class="text-gray-600">Have a question? We're here to help!</p>
@@ -428,7 +621,7 @@
     <input type="hidden" name="from_name" value="Skystar Website">
     
     <!-- Full Name -->
-<div>
+<div data-aos="fade-right">
     <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Full Name</label>
     <input type="text" 
            name="name"
@@ -439,7 +632,7 @@
 </div>
 
 <!-- Email -->
-<div>
+<div data-aos="fade-right">
     <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Email Address</label>
     <input type="email" 
            name="email"
@@ -450,7 +643,7 @@
 </div>
 
 <!-- Phone -->
-<div>
+<div data-aos="fade-right">
     <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Phone Number</label>
     <input type="tel" 
            name="phone"
@@ -461,7 +654,7 @@
 </div>
 
 <!-- Service Selection -->
-<div>
+<div data-aos="fade-right">
     <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Service Interested In</label>
     <select name="service"
             class="w-full sm:max-w-md md:max-w-lg px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm bg-white">
@@ -474,7 +667,7 @@
 </div>
 
 <!-- Message -->
-<div>
+<div data-aos="fade-right">
     <label class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Message</label>
     <textarea name="message"
               id="contact-message"
@@ -486,7 +679,7 @@
 
 <!-- Submit Button -->
 <button type="submit" 
-        class="w-full sm:max-w-md md:max-w-lg bg-blue-600 text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+        class="w-full sm:max-w-md md:max-w-lg bg-blue-600 text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-blue-700 transition" data-aos="fade-up">
     <i class="fas fa-paper-plane mr-2"></i>Send Message
 </button>
 
@@ -501,10 +694,10 @@
                 <!-- Contact Info -->
 <div>
     <div class="bg-white rounded-lg p-4 sm:p-6 md:p-8 shadow-md mb-4 sm:mb-6">
-        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Contact Information</h3>
+        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6" data-aos="fade-left">Contact Information</h3>
         
         <div class="space-y-3 sm:space-y-4">
-            <div class="flex items-start">
+            <div class="flex items-start" data-aos="fade-left" >
                 <i class="fas fa-map-marker-alt text-blue-600 text-base sm:text-xl mt-1 mr-3 sm:mr-4 flex-shrink-0"></i>
                 <div>
                     <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Address</h4>
@@ -513,7 +706,7 @@
                 </div>
             </div>
             
-            <div class="flex items-start">
+            <div class="flex items-start" data-aos="fade-left">
                 <i class="fas fa-envelope text-blue-600 text-base sm:text-xl mt-1 mr-3 sm:mr-4 flex-shrink-0"></i>
                 <div>
                     <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Email</h4>
@@ -521,7 +714,7 @@
                 </div>
             </div>
             
-            <div class="flex items-start">
+            <div class="flex items-start" data-aos="fade-left">
                 <i class="fas fa-phone text-blue-600 text-base sm:text-xl mt-1 mr-3 sm:mr-4 flex-shrink-0"></i>
                 <div>
                     <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Phone</h4>
@@ -529,7 +722,7 @@
                 </div>
             </div>
             
-            <div class="flex items-start">
+            <div class="flex items-start" data-aos="fade-left">
                 <i class="fas fa-clock text-blue-600 text-base sm:text-xl mt-1 mr-3 sm:mr-4 flex-shrink-0"></i>
                 <div>
                     <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Working Hours</h4>
@@ -540,7 +733,7 @@
     </div>
     
     <!-- Google Map -->
-    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+    <div class="bg-white rounded-lg overflow-hidden shadow-md" data-aos="fade-left">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.2281697969597!2d72.92917437602743!3d19.14148708207663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8772c183a15%3A0x3ff3a64ac15041c2!2sOffice%20No%2C%20Neptune%20Magnet%20Mall%2C%20Eastern%20Business%20District%2C%20C%20322%2FA%2C%20Lal%20Bahadur%20Shastri%20Marg%2C%20Ganesh%20Nagar%2C%20Bhandup%20West%2C%20Mumbai%2C%20Maharashtra%20400078!5e0!3m2!1sen!2sin!4v1765011646182!5m2!1sen!2sin" 
         width="100%" 
         height="300" 
@@ -557,7 +750,7 @@
     </section>
 
     <!-- Footer -->
-<footer class="bg-gray-900 text-white py-12">
+<footer class="bg-gray-900 text-white py-12" data-aos="fade-up">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-4 gap-8 mb-8">
             <!-- Company Info -->
@@ -581,7 +774,7 @@
                     <li><a href="#about" class="hover:text-white transition">About Us</a></li>
                     <li><a href="#services" class="hover:text-white transition">Services</a></li>
                     <li><a href="#tracking" class="hover:text-white transition">Track Shipment</a></li>
-                    <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                    <li><a href="#contact" class="hover:text-white transition">Contact Us</a></li>
                 </ul>
             </div>
             
@@ -644,9 +837,23 @@
             <i class="fab fa-whatsapp text-white text-3xl"></i>
         </div>
     </a>
+     <!-- AOS Animation JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <!-- JavaScript -->
     <script>
+
+        // Initialize AOS Animations
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+         // Hide Loader when page loads
+        window.addEventListener('load', () => {
+            document.getElementById('loader').style.display = 'none';
+        });
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -769,7 +976,30 @@ trackingForm.addEventListener('submit', async (e) => {
             });
         });
 
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                answer.classList.toggle('hidden');
+                
+                if (answer.classList.contains('hidden')) {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+
+        
+
     </script>
+
+
+
     
 </body>
 </html>
