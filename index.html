@@ -37,13 +37,7 @@
             scroll-behavior: smooth;
         }
         /* Sticky Navbar */
-        .sticky-nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: blur(10px);
-            background-color: rgba(255, 255, 255, 0.95);
-        }
+        
         /* WhatsApp Float Button */
         .whatsapp-float {
             position: fixed;
@@ -74,6 +68,42 @@
         font-feature-settings: "tnum";
         font-variant-numeric: tabular-nums;
     }
+    /* Smooth transition for mobile menu */
+    #mobile-menu {
+        transition: all 0.3s ease-in-out;
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Sticky navigation styling */
+    .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: white;
+        backdrop-filter: blur(10px);
+    }
+    
+    /* Mobile menu button hover effect */
+    #mobile-menu-btn:hover {
+        transform: scale(1.05);
+    }
+    
+    /* Active link styling */
+    nav a.active {
+        color: #2563eb;
+        font-weight: 600;
+    }
     </style>
 </head>
 <body class="smooth-scroll">
@@ -91,51 +121,52 @@ window.addEventListener('load', () => {
 </script>
 
 
-    <!-- Navigation Bar -->
+   <!-- Navigation Bar -->
 <nav class="sticky-nav shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 py-2">
+            
             <!-- Logo with Custom Image -->
-            <div class="flex-shrink-0 flex items-center ">
+            <div class="flex-shrink-0 flex items-center">
                 <img src="logo.png" 
                      alt="Skystar Multiglobal Services" 
-                     class="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 mr-2 sm:mr-4 object-contain transition-transform duration-300 group-hover:scale-110" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                     class="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 mr-2 sm:mr-4 object-contain transition-transform duration-300 hover:scale-110" 
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <i class="fas fa-ship text-blue-600 text-3xl mr-4 hidden"></i>
                 <div class="flex flex-col">
-                    <span class="text-sm sm:text-base md:text-2xl font-bold text-gray-800 leading-tight">Skystar Multiglobal Services Pvt Ltd</span>
-                    
+                    <span class="text-sm sm:text-base md:text-2xl font-bold text-gray-800 leading-tight">
+                        Skystar Multiglobal Services Pvt Ltd
+                    </span>
                 </div>
             </div>
             
-            <!-- Desktop Menu -->
+            <!-- Desktop Menu (Hidden on Mobile) -->
             <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition">Home</a>
-                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition">About us</a>
-                <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition">Services</a>
-                <a href="#tracking" class="text-gray-700 hover:text-blue-600 font-medium transition">Track Shipment</a>
-                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition">Contact us</a>
+                <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">About Us</a>
+                <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Services</a>
+                <a href="#tracking" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Track Shipment</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">Contact Us</a>
             </div>
             
+            <!-- Mobile Menu Button (Hamburger Icon - Visible Only on Mobile) -->
+            <button id="mobile-menu-btn" 
+                    class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition duration-300" 
+                    aria-label="Toggle menu"
+                    aria-expanded="false">
+                <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+            </button>
             
         </div>
         
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden pb-4">
-            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
-            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600">About Us</a>
-            <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
-            <a href="#tracking" class="block py-2 text-gray-700 hover:text-blue-600">Track Shipment</a>
-            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact us</a>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none" aria-label="Toggle menu">
-            <div class="md:hidden">
-                <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
+        <!-- Mobile Menu (Dropdown - Hidden by Default) -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
+            <a href="#home" class="block py-2 px-4 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded transition duration-300">Home</a>
+            <a href="#about" class="block py-2 px-4 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded transition duration-300">About Us</a>
+            <a href="#services" class="block py-2 px-4 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded transition duration-300">Services</a>
+            <a href="#tracking" class="block py-2 px-4 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded transition duration-300">Track Shipment</a>
+            <a href="#contact" class="block py-2 px-4 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded transition duration-300">Contact Us</a>
         </div>
-        
     </div>
 </nav>
 
@@ -856,13 +887,51 @@ window.addEventListener('load', () => {
         window.addEventListener('load', () => {
             document.getElementById('loader').style.display = 'none';
         });
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // Get elements
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    
+    // Toggle mobile menu
+    mobileMenuBtn.addEventListener('click', function() {
+        // Toggle the hidden class
+        mobileMenu.classList.toggle('hidden');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Change icon from hamburger to X
+        if (mobileMenu.classList.contains('hidden')) {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        } else {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        }
+    });
+    
+    // Close menu when clicking on a link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
         });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnButton = mobileMenuBtn.contains(event.target);
+        
+        if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
 
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
